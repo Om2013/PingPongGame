@@ -27,11 +27,12 @@ while running:
     text_cp = font.render("Computer", True, BLACK)
     text_2p = font.render("Two Players", True, BLACK)
     
-    # Center text inside buttons
-    screen.blit(text_cp, (button_cp.x + (button_cp.width - text_cp.get_width()) // 2,
-                          button_cp.y + (button_cp.height - text_cp.get_height()) // 2))
-    screen.blit(text_2p, (button_2p.x + (button_2p.width - text_2p.get_width()) // 2,
-                           button_2p.y + (button_2p.height - text_2p.get_height()) // 2))
+    # Center text inside buttons using get_rect
+    text_cp_rect = text_cp.get_rect(center=button_cp.center)
+    text_2p_rect = text_2p.get_rect(center=button_2p.center)
+    
+    screen.blit(text_cp, text_cp_rect)
+    screen.blit(text_2p, text_2p_rect)
     
     pygame.display.flip()
     
